@@ -115,7 +115,7 @@
         <div class="rounded-2xl bg-white border border-slate-100 shadow-sm p-6 flex items-center gap-4">
           <span class="flex h-11 w-11 items-center justify-center rounded-xl text-white bg-brand-emerald text-lg">📈</span>
           <div>
-            <p class="text-xs text-slate-500" data-i18n="portfolio.kpi.annualIncome"></p>
+            <p class="text-xs text-slate-500" data-i18n="portfolio.kpi.netPassiveIncome"></p>
             <p class="text-xl font-bold text-navy" id="kpi-income">0 MDL</p>
           </div>
         </div>
@@ -243,7 +243,7 @@ ro: {
   },
   portfolio: {
     title: "Portofoliul Public Moldinvest", subtitle: "Date actualizate după fiecare tranzacție.",
-    kpi: { totalValue: "Valoare Totală Portofoliu", annualIncome: "Venit Pasiv Anual Proiectat", avgYield: "Randament Mediu Ponderat" },
+    kpi: { totalValue: "Valoare Totală Portofoliu", netPassiveIncome: "Venit pasiv net", avgYield: "Randament Mediu Ponderat" },
     columns: { ticker: "Simbol", company: "Companie", quantity: "Cantitate", avgPrice: "Preț mediu", invested: "Investit", commission: "Comision", cost: "Cost", divGross: "Dividende brute", divTaxes: "Impozit pe dividende", divNet: "Dividende nete", divYield: "Randament (%)", code: "Cod", price: "Preț", yield: "Randament (%)", issued: "Emis la", maturity: "Scadență", days: "Zile", interest: "Dobândă", sold: "Vândut cu" },
     tier1: { title: "Acțiuni din Republica Moldova", company: "Compania", shares: "Nr. Acțiuni", avgPrice: "Preț Mediu (MDL)", currentPrice: "Preț Curent (MDL)", totalValue: "Valoare Totală (MDL)", dividends: "Dividende Încasate (MDL)", totalReturn: "Randament Total (%)" },
     tier2: { title: "Obligațiuni de Stat", issue: "Emisiune / Maturitate", invested: "Suma Investită (MDL)", couponRate: "Rata Cuponului (%)", frequency: "Frecvență Plată", couponReceived: "Cupon Încasat (MDL)", projectedIncome: "Proiecție Venit Anual (MDL)" },
@@ -268,7 +268,7 @@ ru: {
   },
   portfolio: {
     title: "Публичный Портфель Moldinvest", subtitle: "Данные обновляются из файла portfolio.json — без ручного вмешательства на сайте.",
-    kpi: { totalValue: "Общая Стоимость Портфеля", annualIncome: "Прогноз Годового Пассивного Дохода", avgYield: "Средневзвешенная Доходность" },
+    kpi: { totalValue: "Общая Стоимость Портфеля", netPassiveIncome: "Чистый пассивный доход", avgYield: "Средневзвешенная Доходность" },
     columns: { ticker: "Тикер", company: "Компания", quantity: "Количество", avgPrice: "Средняя цена", invested: "Инвестировано", commission: "Комиссия", cost: "Затраты", divGross: "Дивиденды брутто", divTaxes: "Налог на дивиденды", divNet: "Дивиденды нетто", divYield: "Доходность дивидендов (%)", code: "Код", price: "Цена", yield: "Доходность (%)", issued: "Дата выпуска", maturity: "Погашение", days: "Дней", interest: "Проценты", sold: "Продано за" },
     tier1: { title: "Акции Молдовы", company: "Компания", shares: "Кол-во Акций", avgPrice: "Средняя Цена (MDL)", currentPrice: "Текущая Цена (MDL)", totalValue: "Общая Стоимость (MDL)", dividends: "Полученные Дивиденды (MDL)", totalReturn: "Общая Доходность (%)" },
     tier2: { title: "Государственные облигации", issue: "Выпуск / Погашение", invested: "Инвестированная Сумма (MDL)", couponRate: "Купонная Ставка (%)", frequency: "Периодичность Выплат", couponReceived: "Полученный Купон (MDL)", projectedIncome: "Прогноз Годового Дохода (MDL)" },
@@ -293,7 +293,7 @@ en: {
   },
   portfolio: {
     title: "Moldinvest Public Portfolio", subtitle: "Data loaded from portfolio.json — no manual edits on the site.",
-    kpi: { totalValue: "Total Portfolio Value", annualIncome: "Projected Annual Passive Income", avgYield: "Weighted Average Yield" },
+    kpi: { totalValue: "Total Portfolio Value", netPassiveIncome: "Net Passive Income", avgYield: "Weighted Average Yield" },
     columns: { ticker: "Ticker", company: "Company", quantity: "Quantity", avgPrice: "Avg Price", invested: "Invested", commission: "Commission", cost: "Cost", divGross: "Div Gross", divTaxes: "Div Taxes", divNet: "Div Net", divYield: "Div Yield %", code: "Code", price: "Price", yield: "Yield %", issued: "Issued", maturity: "Maturity", days: "Days", interest: "Interest", sold: "Sold" },
     tier1: { title: "Moldovan Stocks", company: "Company", shares: "Shares", avgPrice: "Avg. Price (MDL)", currentPrice: "Current Price (MDL)", totalValue: "Total Value (MDL)", dividends: "Dividends Received (MDL)", totalReturn: "Total Return (%)" },
     tier2: { title: "Government Bonds", issue: "Issue / Maturity", invested: "Amount Invested (MDL)", couponRate: "Coupon Rate (%)", frequency: "Payment Frequency", couponReceived: "Coupon Received (MDL)", projectedIncome: "Projected Annual Income (MDL)" },
@@ -305,6 +305,7 @@ en: {
 
 let currentLang = localStorage.getItem("moldinvest_lang") || "ro";
 let portfolioData = { stocks: [], bonds: [] };
+const NET_PASSIVE_INCOME = 4789.68;
 
 function get(obj, path) {
   return path.split(".").reduce((a, k) => (a && a[k] !== undefined ? a[k] : undefined), obj);
@@ -378,7 +379,7 @@ function computeKpis() {
   const bondsAnnualIncome = bonds.reduce((s, b) => s + (Number(b.invested) || 0) * (Number(b.yield) || 0), 0);
   const stocksDivNet = stocks.reduce((s, x) => s + (Number(x.divNet) || 0), 0);
   const avgYield = totalValue > 0 ? ((stocksDivNet + bondsAnnualIncome) / totalValue) * 100 : 0;
-  return { totalValue, annualIncome: bondsAnnualIncome + stocksDivNet, avgYield };
+  return { totalValue, avgYield };
 }
 
 function stockReturn(s) {
@@ -393,7 +394,7 @@ function renderPortfolio() {
   const dict = DICTIONARIES[currentLang].portfolio;
   const kpi = computeKpis();
   document.getElementById("kpi-total").textContent = fmtMDL(kpi.totalValue);
-  document.getElementById("kpi-income").textContent = fmtMDL(kpi.annualIncome);
+  document.getElementById("kpi-income").textContent = fmtMDL(NET_PASSIVE_INCOME);
   document.getElementById("kpi-yield").textContent = fmtPct(kpi.avgYield);
 
   const stocks = portfolioData.stocks || [];
