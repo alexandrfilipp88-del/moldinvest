@@ -27,8 +27,9 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Inter', system-ui, sans-serif; }
   [x-cloak] { display: none !important; }
-  .table-wrap { overflow-x: auto; }
+  .table-wrap { overflow-x: auto; scrollbar-color: #94a3b8 #f1f5f9; scrollbar-width: thin; }
   .table-wrap table { min-width: 800px; }
+  .table-scroll-hint[hidden] { display: none; }
 </style>
 </head>
 <body class="bg-white text-navy antialiased">
@@ -85,7 +86,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-navy" data-i18n="portfolio.title"></h2>
-        <p class="mt-3 text-slate-600" data-i18n="portfolio.subtitle"></p>
+        <p class="mt-3 text-slate-600"><span data-i18n="portfolio.updatedPrefix"></span> <time id="portfolio-updated-at"></time>.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
@@ -115,7 +116,7 @@
       <div class="space-y-12">
         <div>
           <h3 class="text-lg font-bold text-navy mb-4" data-i18n="portfolio.tier1.title"></h3>
-          <div class="table-wrap rounded-xl border border-slate-100 bg-white shadow-sm">
+          <div class="table-wrap rounded-xl border border-slate-100 bg-white shadow-sm" data-table-scroll>
             <table class="w-full text-sm">
               <thead>
                 <tr class="bg-navy text-white text-left">
@@ -136,11 +137,12 @@
               <tbody id="stocks-tbody"></tbody>
             </table>
           </div>
+          <p class="table-scroll-hint mt-2 text-xs font-medium text-slate-500" data-table-scroll-hint data-i18n="portfolio.scrollHint" hidden></p>
         </div>
 
         <div>
           <h3 class="text-lg font-bold text-navy mb-4" data-i18n="portfolio.tier2.title"></h3>
-          <div class="table-wrap rounded-xl border border-slate-100 bg-white shadow-sm">
+          <div class="table-wrap rounded-xl border border-slate-100 bg-white shadow-sm" data-table-scroll>
             <table class="w-full text-sm">
               <thead>
                 <tr class="bg-navy text-white text-left">
@@ -159,6 +161,7 @@
               <tbody id="bonds-tbody"></tbody>
             </table>
           </div>
+          <p class="table-scroll-hint mt-2 text-xs font-medium text-slate-500" data-table-scroll-hint data-i18n="portfolio.scrollHint" hidden></p>
         </div>
       </div>
 
@@ -316,7 +319,7 @@ ro: {
     ]
   },
   portfolio: {
-    title: "Portofoliul Public Moldinvest", subtitle: "Date actualizate după fiecare tranzacție.",
+    title: "Portofoliul Public Moldinvest", updatedPrefix: "Date actualizate la", updatedUnavailable: "Data actualizării nu este disponibilă", scrollHint: "← Glisați orizontal pentru a vedea toate coloanele →",
     kpi: { totalValue: "Valoare Totală Portofoliu", netPassiveIncome: "Venit pasiv net", avgYield: "Randament Mediu Ponderat" },
     columns: { ticker: "Simbol", exchange: "Bursă", country: "Țară", quantity: "Cantitate", avgPrice: "Preț mediu", invested: "Investit", commission: "Comision", cost: "Cost", divGross: "Dividende brute", divTaxes: "Impozit pe dividende", divNet: "Dividende nete", divYield: "Randament (%)", code: "Cod", price: "Preț", yield: "Randament (%)", issued: "Emis la", maturity: "Scadență", days: "Zile", interest: "Dobândă", sold: "Vândut cu", profitLoss: "P/L" },
     tier1: { title: "Acțiuni din Republica Moldova", company: "Compania", shares: "Nr. Acțiuni", avgPrice: "Preț Mediu (MDL)", currentPrice: "Preț Curent (MDL)", totalValue: "Valoare Totală (MDL)", dividends: "Dividende Încasate (MDL)", totalReturn: "Randament Total (%)" },
@@ -355,7 +358,7 @@ ru: {
     ]
   },
   portfolio: {
-    title: "Публичный Портфель Moldinvest", subtitle: "Данные обновляются из файла portfolio.json — без ручного вмешательства на сайте.",
+    title: "Публичный Портфель Moldinvest", updatedPrefix: "Данные обновлены", updatedUnavailable: "Дата обновления недоступна", scrollHint: "← Прокрутите таблицу по горизонтали, чтобы увидеть все столбцы →",
     kpi: { totalValue: "Общая Стоимость Портфеля", netPassiveIncome: "Чистый пассивный доход", avgYield: "Средневзвешенная Доходность" },
     columns: { ticker: "Тикер", exchange: "Биржа", country: "Страна", quantity: "Количество", avgPrice: "Средняя цена", invested: "Инвестировано", commission: "Комиссия", cost: "Затраты", divGross: "Дивиденды брутто", divTaxes: "Налог на дивиденды", divNet: "Дивиденды нетто", divYield: "Доходность (%)", code: "Код", price: "Цена", yield: "Доходность (%)", issued: "Дата выпуска", maturity: "Погашение", days: "Дней", interest: "Проценты", sold: "Продано за", profitLoss: "П/У" },
     tier1: { title: "Акции Молдовы", company: "Компания", shares: "Кол-во Акций", avgPrice: "Средняя Цена (MDL)", currentPrice: "Текущая Цена (MDL)", totalValue: "Общая Стоимость (MDL)", dividends: "Полученные Дивиденды (MDL)", totalReturn: "Общая Доходность (%)" },
@@ -394,7 +397,7 @@ en: {
     ]
   },
   portfolio: {
-    title: "Moldinvest Public Portfolio", subtitle: "Data loaded from portfolio.json — no manual edits on the site.",
+    title: "Moldinvest Public Portfolio", updatedPrefix: "Data updated on", updatedUnavailable: "Update date unavailable", scrollHint: "← Scroll horizontally to see all columns →",
     kpi: { totalValue: "Total Portfolio Value", netPassiveIncome: "Net Passive Income", avgYield: "Weighted Average Yield" },
     columns: { ticker: "Ticker", exchange: "Exchange", country: "Country", quantity: "Quantity", avgPrice: "Avg Price", invested: "Invested", commission: "Commission", cost: "Cost", divGross: "Div Gross", divTaxes: "Div Taxes", divNet: "Div Net", divYield: "Div Yield %", code: "Code", price: "Price", yield: "Yield %", issued: "Issued", maturity: "Maturity", days: "Days", interest: "Interest", sold: "Sold", profitLoss: "P/L" },
     tier1: { title: "Moldovan Stocks", company: "Company", shares: "Shares", avgPrice: "Avg. Price (MDL)", currentPrice: "Current Price (MDL)", totalValue: "Total Value (MDL)", dividends: "Dividends Received (MDL)", totalReturn: "Total Return (%)" },
@@ -502,6 +505,27 @@ function stockReturn(s) {
 
 function renderPortfolio() {
   const dict = DICTIONARIES[currentLang].portfolio;
+  const updatedAt = portfolioData.updatedAt;
+  const updatedAtElement = document.getElementById("portfolio-updated-at");
+  if (typeof updatedAt === "string" && /^\d{4}-\d{2}-\d{2}$/.test(updatedAt)) {
+    const parsedDate = new Date(`${updatedAt}T00:00:00Z`);
+    if (!Number.isNaN(parsedDate.getTime()) && parsedDate.toISOString().slice(0, 10) === updatedAt) {
+      const locale = { ro: "ro-MD", ru: "ru-MD", en: "en-MD" }[currentLang];
+      updatedAtElement.dateTime = updatedAt;
+      updatedAtElement.textContent = parsedDate.toLocaleDateString(locale, {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC"
+      });
+    } else {
+      updatedAtElement.removeAttribute("datetime");
+      updatedAtElement.textContent = dict.updatedUnavailable;
+    }
+  } else {
+    updatedAtElement.removeAttribute("datetime");
+    updatedAtElement.textContent = dict.updatedUnavailable;
+  }
   const kpi = computeKpis();
   document.getElementById("kpi-total").textContent = fmtMDL(kpi.totalValue);
   document.getElementById("kpi-income").textContent = fmtMDL(NET_PASSIVE_INCOME);
@@ -714,10 +738,19 @@ function renderAll() {
   renderText();
   renderServices();
   renderPortfolio();
+  updateTableScrollHints();
   renderCalculator();
 }
 
+function updateTableScrollHints() {
+  document.querySelectorAll("[data-table-scroll]").forEach(table => {
+    const hint = table.nextElementSibling;
+    if (hint) hint.hidden = table.scrollWidth <= table.clientWidth;
+  });
+}
+
 document.getElementById("footer-year").textContent = new Date().getFullYear();
+window.addEventListener("resize", updateTableScrollHints);
 ["calc-initial", "calc-monthly", "calc-rate", "calc-months", "calc-tax"].forEach(id => {
   document.getElementById(id).addEventListener("input", renderCalculator);
 });
