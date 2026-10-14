@@ -185,10 +185,6 @@
                 <label for="calc-months" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.months"></label>
                 <input id="calc-months" type="number" inputmode="numeric" min="1" max="1200" step="1" value="12" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
               </div>
-              <div class="sm:col-span-2">
-                <label for="calc-tax" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.tax"></label>
-                <input id="calc-tax" type="number" inputmode="decimal" min="0" max="100" step="any" value="0" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
-              </div>
             </div>
 
             <p class="mb-2 mt-3 text-sm font-medium text-slate-600" data-i18n="calculator.presets.label"></p>
@@ -202,6 +198,10 @@
               <button type="button" data-calculator-months="300" data-i18n="calculator.presets.twentyFiveYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
               <button type="button" data-calculator-months="360" data-i18n="calculator.presets.thirtyYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
               <button type="button" data-calculator-months="420" data-i18n="calculator.presets.thirtyFiveYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+            </div>
+            <div class="mt-4">
+              <label for="calc-tax" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.tax"></label>
+              <input id="calc-tax" type="number" inputmode="decimal" min="0" max="100" step="any" value="0" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
             </div>
             <p id="calc-error" role="alert" class="mt-4 hidden text-sm font-medium text-red-600" data-i18n="calculator.error"></p>
           </div>
