@@ -160,6 +160,86 @@
           </div>
         </div>
       </div>
+
+      <section class="mt-16 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8" aria-labelledby="calculator-title">
+        <div class="max-w-3xl">
+          <h3 id="calculator-title" class="text-2xl font-extrabold text-navy" data-i18n="calculator.title"></h3>
+          <p class="mt-2 text-sm text-slate-600" data-i18n="calculator.subtitle"></p>
+        </div>
+        <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label for="calc-initial" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.initial"></label>
+                <input id="calc-initial" type="number" inputmode="decimal" min="0" step="any" value="0" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
+              </div>
+              <div>
+                <label for="calc-monthly" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.monthly"></label>
+                <input id="calc-monthly" type="number" inputmode="decimal" min="0" step="any" value="0" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
+              </div>
+              <div>
+                <label for="calc-rate" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.rate"></label>
+                <input id="calc-rate" type="number" inputmode="decimal" min="0" step="any" value="8" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
+              </div>
+              <div>
+                <label for="calc-months" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.months"></label>
+                <input id="calc-months" type="number" inputmode="numeric" min="1" max="1200" step="1" value="12" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
+              </div>
+              <div class="sm:col-span-2">
+                <label for="calc-tax" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.tax"></label>
+                <input id="calc-tax" type="number" inputmode="decimal" min="0" max="100" step="any" value="0" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
+              </div>
+            </div>
+
+            <p class="mb-2 mt-3 text-sm font-medium text-slate-600" data-i18n="calculator.presets.label"></p>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" data-calculator-months="12" data-i18n="calculator.presets.oneYear" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+              <button type="button" data-calculator-months="60" data-i18n="calculator.presets.fiveYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+              <button type="button" data-calculator-months="120" data-i18n="calculator.presets.tenYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+              <button type="button" data-calculator-months="180" data-i18n="calculator.presets.fifteenYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+              <button type="button" data-calculator-months="216" data-i18n="calculator.presets.eighteenYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+              <button type="button" data-calculator-months="240" data-i18n="calculator.presets.twentyYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+              <button type="button" data-calculator-months="300" data-i18n="calculator.presets.twentyFiveYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+              <button type="button" data-calculator-months="360" data-i18n="calculator.presets.thirtyYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+              <button type="button" data-calculator-months="420" data-i18n="calculator.presets.thirtyFiveYears" class="rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50"></button>
+            </div>
+            <p id="calc-error" role="alert" class="mt-4 hidden text-sm font-medium text-red-600" data-i18n="calculator.error"></p>
+          </div>
+
+          <div>
+            <h4 class="mb-3 text-lg font-bold text-navy" data-i18n="calculator.results"></h4>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="rounded-xl bg-surface-light p-4">
+                <span class="block text-xs text-slate-500" data-i18n="calculator.invested"></span>
+                <strong id="calc-result-invested" class="mt-1 block break-words text-lg font-bold text-navy">0 MDL</strong>
+              </div>
+              <div class="rounded-xl bg-surface-light p-4">
+                <span class="block text-xs text-slate-500" data-i18n="calculator.grossGain"></span>
+                <strong id="calc-result-gain" class="mt-1 block break-words text-lg font-bold text-navy">0 MDL</strong>
+              </div>
+              <div class="rounded-xl bg-surface-light p-4">
+                <span class="block text-xs text-slate-500" data-i18n="calculator.taxAmount"></span>
+                <strong id="calc-result-tax" class="mt-1 block break-words text-lg font-bold text-navy">0 MDL</strong>
+              </div>
+              <div class="rounded-xl bg-emerald-50 p-4">
+                <span class="block text-xs text-emerald-800" data-i18n="calculator.finalValue"></span>
+                <strong id="calc-result-final" class="mt-1 block break-words text-lg font-bold text-emerald-900">0 MDL</strong>
+              </div>
+            </div>
+
+            <h4 class="mb-2 mt-6 text-base font-bold text-navy" data-i18n="calculator.chartTitle"></h4>
+            <div class="mb-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600">
+              <span><i class="mr-1 inline-block h-2.5 w-2.5 rounded-sm bg-slate-500"></i><span data-i18n="calculator.invested"></span></span>
+              <span><i class="mr-1 inline-block h-2.5 w-2.5 rounded-sm bg-brand-emerald"></i><span data-i18n="calculator.netGain"></span></span>
+            </div>
+            <div class="relative h-64 w-full">
+              <canvas id="investment-chart" role="img" data-i18n-aria-label="calculator.chartAria"></canvas>
+            </div>
+            <p id="calc-axis-note" class="mt-2 text-xs text-slate-500"></p>
+          </div>
+        </div>
+        <p class="mt-6 border-t border-slate-100 pt-4 text-xs leading-relaxed text-slate-500" data-i18n="calculator.disclaimer"></p>
+      </section>
     </div>
   </section>
 
@@ -187,9 +267,12 @@
         <p class="text-sm text-slate-400" data-i18n="footer.address"></p>
       </div>
       <div class="text-sm">
-        <div class="flex items-center gap-4">
+        <div class="flex flex-col items-start gap-3">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
           <a href="https://www.tiktok.com/@mold_invest" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">TikTok @mold_invest</a>
           <a href="https://www.instagram.com/mold_invest/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">Instagram @mold_invest</a>
+          </div>
+          <a href="./Moldinvest-Legal.docx" download class="text-xs text-slate-400 underline decoration-slate-600 underline-offset-4 hover:text-white" data-i18n="footer.legalDocs"></a>
         </div>
       </div>
       <div class="text-xs text-slate-500 leading-relaxed" data-i18n="footer.disclaimer"></div>
@@ -201,6 +284,7 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 /* =====================================================================
    MOLDINVEST — single-file static site (no build step, no backend).
@@ -238,7 +322,17 @@ ro: {
     tier2: { title: "Obligațiuni de Stat", issue: "Emisiune / Maturitate", invested: "Suma Investită (MDL)", couponRate: "Rata Cuponului (%)", frequency: "Frecvență Plată", couponReceived: "Cupon Încasat (MDL)", projectedIncome: "Proiecție Venit Anual (MDL)" },
     empty: "Nu există date de portofoliu încărcate momentan."
   },
-  footer: { rights: "Toate drepturile rezervate.", disclaimer: "Informațiile prezentate au scop educațional și nu constituie consultanță de investiții personalizată în sensul legislației pieței de capital din Republica Moldova.", address: "Chișinău, Republica Moldova" }
+  calculator: {
+    title: "Calculator de investiții", subtitle: "Simulează contribuțiile și creșterea estimată a investiției în MDL, cu capitalizare lunară.",
+    initial: "Suma inițială (MDL)", monthly: "Investiția lunară (MDL)", rate: "Randament anual (%)", months: "Perioada (luni)", tax: "Impozit estimat pe câștig (%)",
+    presets: { label: "Alege o perioadă:", oneYear: "1 an", fiveYears: "5 ani", tenYears: "10 ani", fifteenYears: "15 ani", eighteenYears: "18 ani", twentyYears: "20 ani", twentyFiveYears: "25 ani", thirtyYears: "30 ani", thirtyFiveYears: "35 ani" },
+    results: "Rezultatele investiției", invested: "Total investit", grossGain: "Câștig brut", taxAmount: "Impozit estimat", finalValue: "Valoare finală netă", chartTitle: "Evoluția lunară estimată", netGain: "Câștig net",
+    chartAria: "Grafic cu bare al contribuțiilor și câștigului net lunar", chartMonth: "Luna", finalValueTooltip: "Valoare finală estimată", chartUnavailable: "Graficul nu este disponibil momentan. Rezultatele numerice rămân funcționale.",
+    axisYears: "Axa orizontală: ani (fiecare bară reprezintă o lună)", axisMonths: "Axa orizontală: luni",
+    disclaimer: "Simulare orientativă, cu capitalizare lunară și contribuții la sfârșitul fiecărei luni. Randamentele și impozitul sunt ipoteze introduse de utilizator; rezultatele nu sunt garantate și nu constituie consultanță de investiții.",
+    error: "Nu se poate calcula rezultatul pentru valorile introduse. Verifică perioada și ipotezele."
+  },
+  footer: { rights: "Toate drepturile rezervate.", disclaimer: "Informațiile prezentate au scop educațional și nu constituie consultanță de investiții personalizată în sensul legislației pieței de capital din Republica Moldova.", address: "Chișinău, Republica Moldova", legalDocs: "Documentație juridică și de compliance (DOCX)" }
 },
 ru: {
   nav: { home: "Главная", services: "Услуги", portfolio: "Публичный Портфель", about: "О Нас" },
@@ -267,7 +361,17 @@ ru: {
     tier2: { title: "Государственные облигации", issue: "Выпуск / Погашение", invested: "Инвестированная Сумма (MDL)", couponRate: "Купонная Ставка (%)", frequency: "Периодичность Выплат", couponReceived: "Полученный Купон (MDL)", projectedIncome: "Прогноз Годового Дохода (MDL)" },
     empty: "Данные портфеля пока не загружены."
   },
-  footer: { rights: "Все права защищены.", disclaimer: "Представленная информация носит образовательный характер и не является персонализированной инвестиционной консультацией по смыслу законодательства о рынке капитала Республики Молдова.", address: "Кишинёв, Республика Молдова" }
+  calculator: {
+    title: "Инвестиционный калькулятор", subtitle: "Смоделируйте взносы и предполагаемый рост инвестиций в MDL с ежемесячной капитализацией.",
+    initial: "Начальная сумма (MDL)", monthly: "Ежемесячный взнос (MDL)", rate: "Годовая доходность (%)", months: "Срок (месяцев)", tax: "Предполагаемый налог на прибыль (%)",
+    presets: { label: "Выберите срок:", oneYear: "1 год", fiveYears: "5 лет", tenYears: "10 лет", fifteenYears: "15 лет", eighteenYears: "18 лет", twentyYears: "20 лет", twentyFiveYears: "25 лет", thirtyYears: "30 лет", thirtyFiveYears: "35 лет" },
+    results: "Результаты инвестирования", invested: "Всего вложено", grossGain: "Доход до налога", taxAmount: "Предполагаемый налог", finalValue: "Итоговая сумма после налога", chartTitle: "Предполагаемый рост по месяцам", netGain: "Доход после налога",
+    chartAria: "Столбчатый график взносов и чистого дохода по месяцам", chartMonth: "Месяц", finalValueTooltip: "Предполагаемая итоговая сумма", chartUnavailable: "График сейчас недоступен. Числовые результаты продолжают работать.",
+    axisYears: "Горизонтальная ось: годы (каждый столбец — месяц)", axisMonths: "Горизонтальная ось: месяцы",
+    disclaimer: "Ориентировочная модель с ежемесячной капитализацией и взносами в конце каждого месяца. Доходность и налог — введённые пользователем предположения; результат не гарантируется и не является инвестиционной консультацией.",
+    error: "Не удалось рассчитать результат для введённых значений. Проверьте срок и предположения."
+  },
+  footer: { rights: "Все права защищены.", disclaimer: "Представленная информация носит образовательный характер и не является персонализированной инвестиционной консультацией по смыслу законодательства о рынке капитала Республики Молдова.", address: "Кишинёв, Республика Молдова", legalDocs: "Юридическая документация и комплаенс (DOCX)" }
 },
 en: {
   nav: { home: "Home", services: "Services", portfolio: "Public Portfolio", about: "About Us" },
@@ -296,13 +400,24 @@ en: {
     tier2: { title: "Government Bonds", issue: "Issue / Maturity", invested: "Amount Invested (MDL)", couponRate: "Coupon Rate (%)", frequency: "Payment Frequency", couponReceived: "Coupon Received (MDL)", projectedIncome: "Projected Annual Income (MDL)" },
     empty: "No portfolio data has been uploaded yet."
   },
-  footer: { rights: "All rights reserved.", disclaimer: "The information presented is for educational purposes only and does not constitute personalized investment advice under Moldovan capital market legislation.", address: "Chișinău, Republic of Moldova" }
+  calculator: {
+    title: "Investment Calculator", subtitle: "Model contributions and estimated investment growth in MDL with monthly compounding.",
+    initial: "Initial amount (MDL)", monthly: "Monthly contribution (MDL)", rate: "Annual return (%)", months: "Period (months)", tax: "Estimated tax on gains (%)",
+    presets: { label: "Choose a period:", oneYear: "1 year", fiveYears: "5 years", tenYears: "10 years", fifteenYears: "15 years", eighteenYears: "18 years", twentyYears: "20 years", twentyFiveYears: "25 years", thirtyYears: "30 years", thirtyFiveYears: "35 years" },
+    results: "Investment results", invested: "Total invested", grossGain: "Gross gain", taxAmount: "Estimated tax", finalValue: "Net final value", chartTitle: "Estimated monthly growth", netGain: "Net gain",
+    chartAria: "Bar chart of monthly contributions and net investment gain", chartMonth: "Month", finalValueTooltip: "Estimated final value", chartUnavailable: "The chart is currently unavailable. Numeric results are still calculated.",
+    axisYears: "Horizontal axis: years (each bar represents one month)", axisMonths: "Horizontal axis: months",
+    disclaimer: "Illustrative estimate with monthly compounding and contributions made at the end of each month. Returns and tax are user-entered assumptions; results are not guaranteed and this is not investment advice.",
+    error: "Could not calculate a result for these values. Check the period and assumptions."
+  },
+  footer: { rights: "All rights reserved.", disclaimer: "The information presented is for educational purposes only and does not constitute personalized investment advice under Moldovan capital market legislation.", address: "Chișinău, Republic of Moldova", legalDocs: "Legal and compliance documentation (DOCX)" }
 }
 };
 
 let currentLang = localStorage.getItem("moldinvest_lang") || "ro";
 let portfolioData = { stocks: [], bonds: [] };
 const NET_PASSIVE_INCOME = 4789.68;
+let investmentChart = null;
 
 function get(obj, path) {
   return path.split(".").reduce((a, k) => (a && a[k] !== undefined ? a[k] : undefined), obj);
@@ -341,6 +456,10 @@ function renderText() {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const val = get(DICTIONARIES[currentLang], el.dataset.i18n);
     if (typeof val === "string") el.textContent = val;
+  });
+  document.querySelectorAll("[data-i18n-aria-label]").forEach(el => {
+    const val = get(DICTIONARIES[currentLang], el.dataset.i18nAriaLabel);
+    if (typeof val === "string") el.setAttribute("aria-label", val);
   });
 }
 
@@ -427,6 +546,149 @@ function renderPortfolio() {
       }).join("");
 }
 
+function calculatorMoney(value) {
+  if (!Number.isFinite(value)) return "—";
+  const locales = { ro: "ro-MD", ru: "ru-MD", en: "en-MD" };
+  return new Intl.NumberFormat(locales[currentLang], { maximumFractionDigits: 0 }).format(Math.round(value)) + " MDL";
+}
+
+function renderCalculator() {
+  const dict = DICTIONARIES[currentLang].calculator;
+  const initial = Math.max(0, Number.parseFloat(document.getElementById("calc-initial").value) || 0);
+  const monthly = Math.max(0, Number.parseFloat(document.getElementById("calc-monthly").value) || 0);
+  const rate = Math.max(0, Number.parseFloat(document.getElementById("calc-rate").value) || 0);
+  const requestedMonths = Number.parseFloat(document.getElementById("calc-months").value);
+  const months = Number.isFinite(requestedMonths) && requestedMonths > 0
+    ? Math.max(1, Math.min(1200, Math.floor(requestedMonths)))
+    : 1;
+  const taxRate = Math.min(100, Math.max(0, Number.parseFloat(document.getElementById("calc-tax").value) || 0));
+  document.getElementById("calc-months").value = months;
+
+  const monthlyRate = rate / 100 / 12;
+  let balance = initial;
+  const labels = [0];
+  const investedSeries = [initial];
+  const gainSeries = [0];
+  let overflowed = !Number.isFinite(balance);
+
+  for (let month = 1; month <= months && !overflowed; month++) {
+    balance = balance * (1 + monthlyRate) + monthly;
+    if (!Number.isFinite(balance)) {
+      overflowed = true;
+      break;
+    }
+    const invested = initial + monthly * month;
+    const grossGain = Math.max(0, balance - invested);
+    labels.push(month);
+    investedSeries.push(invested);
+    gainSeries.push(grossGain * (1 - taxRate / 100));
+  }
+
+  const totalInvested = initial + monthly * months;
+  const grossGain = Math.max(0, balance - totalInvested);
+  const taxAmount = grossGain * taxRate / 100;
+  const resultValues = {
+    "calc-result-invested": totalInvested,
+    "calc-result-gain": grossGain,
+    "calc-result-tax": taxAmount,
+    "calc-result-final": balance - taxAmount
+  };
+  Object.entries(resultValues).forEach(([id, value]) => {
+    document.getElementById(id).textContent = calculatorMoney(value);
+  });
+
+  const useYears = months > 24;
+  const tickStep = useYears ? 12 * Math.max(1, Math.ceil(months / 12 / 6)) : Math.max(1, Math.ceil(months / 6));
+  document.getElementById("calc-axis-note").textContent = useYears ? dict.axisYears : dict.axisMonths;
+  const error = document.getElementById("calc-error");
+  error.classList.toggle("hidden", !overflowed && typeof Chart !== "undefined");
+  if (overflowed) error.textContent = dict.error;
+  else if (typeof Chart === "undefined") error.textContent = dict.chartUnavailable;
+
+  if (typeof Chart === "undefined" || overflowed) {
+    if (overflowed && investmentChart) {
+      investmentChart.data = { labels: [], datasets: [] };
+      investmentChart.update();
+    }
+    return;
+  }
+
+  const chartData = {
+    labels,
+    datasets: [
+      { label: dict.invested, data: investedSeries, backgroundColor: "#64748B", borderWidth: 0, barPercentage: 1, categoryPercentage: 0.95 },
+      { label: dict.netGain, data: gainSeries, backgroundColor: "#059669", borderWidth: 0, barPercentage: 1, categoryPercentage: 0.95 }
+    ]
+  };
+
+  if (!investmentChart) {
+    investmentChart = new Chart(document.getElementById("investment-chart"), {
+      type: "bar",
+      data: chartData,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: items => `${dict.chartMonth} ${items[0].label}`,
+              label: item => `${item.dataset.label}: ${calculatorMoney(item.parsed.y)}`,
+              footer: items => `${dict.finalValueTooltip}: ${calculatorMoney(items.reduce((sum, item) => sum + item.parsed.y, 0))}`
+            }
+          }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            grid: { display: false },
+            ticks: {
+              autoSkip: false,
+              maxRotation: 0,
+              color: "#64748B",
+              font: { size: 11 },
+              callback: function(value) {
+                const month = Number(this.getLabelForValue(value));
+                if (month % tickStep !== 0) return "";
+                return useYears ? month / 12 : month;
+              }
+            }
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            grid: { color: "rgba(100,116,139,0.16)" },
+            ticks: {
+              color: "#64748B",
+              font: { size: 11 },
+              maxTicksLimit: 5,
+              callback: value => new Intl.NumberFormat(
+                { ro: "ro-MD", ru: "ru-MD", en: "en-MD" }[currentLang],
+                { notation: "compact", maximumFractionDigits: 1 }
+              ).format(value)
+            }
+          }
+        }
+      }
+    });
+  } else {
+    investmentChart.data = chartData;
+    investmentChart.options.plugins.tooltip.callbacks = {
+      title: items => `${dict.chartMonth} ${items[0].label}`,
+      label: item => `${item.dataset.label}: ${calculatorMoney(item.parsed.y)}`,
+      footer: items => `${dict.finalValueTooltip}: ${calculatorMoney(items.reduce((sum, item) => sum + item.parsed.y, 0))}`
+    };
+    investmentChart.options.scales.x.ticks.callback = function(value) {
+      const month = Number(this.getLabelForValue(value));
+      if (month % tickStep !== 0) return "";
+      return useYears ? month / 12 : month;
+    };
+    investmentChart.update();
+  }
+}
+
 function animateStats() {
   const targets = { "stat-community": 3000, "stat-portfolio": 18257.8 };
   const suffixes = { "stat-community": "+", "stat-portfolio": " MDL" };
@@ -450,9 +712,19 @@ function renderAll() {
   renderText();
   renderServices();
   renderPortfolio();
+  renderCalculator();
 }
 
 document.getElementById("footer-year").textContent = new Date().getFullYear();
+["calc-initial", "calc-monthly", "calc-rate", "calc-months", "calc-tax"].forEach(id => {
+  document.getElementById(id).addEventListener("input", renderCalculator);
+});
+document.querySelectorAll("[data-calculator-months]").forEach(button => {
+  button.addEventListener("click", () => {
+    document.getElementById("calc-months").value = button.dataset.calculatorMonths;
+    renderCalculator();
+  });
+});
 
 // Load portfolio.json (must be served over http/https — file:// will fail
 // due to browser fetch restrictions; use `vercel dev`, `npx serve`, or just
