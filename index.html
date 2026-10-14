@@ -154,8 +154,6 @@
                   <th class="px-4 py-3 font-semibold" data-i18n="portfolio.columns.maturity"></th>
                   <th class="px-4 py-3 font-semibold text-right" data-i18n="portfolio.columns.days"></th>
                   <th class="px-4 py-3 font-semibold text-right" data-i18n="portfolio.columns.interest"></th>
-                  <th class="px-4 py-3 font-semibold" data-i18n="portfolio.columns.sold"></th>
-                  <th class="px-4 py-3 font-semibold text-right" data-i18n="portfolio.columns.profitLoss"></th>
                 </tr>
               </thead>
               <tbody id="bonds-tbody"></tbody>
@@ -512,7 +510,7 @@ function renderPortfolio() {
   const stocks = portfolioData.stocks || [];
   const stocksBody = document.getElementById("stocks-tbody");
   stocksBody.innerHTML = stocks.length === 0
-    ? `<tr><td colspan="12" class="px-4 py-6 text-center text-slate-400">${dict.empty}</td></tr>`
+    ? `<tr><td colspan="10" class="px-4 py-6 text-center text-slate-400">${dict.empty}</td></tr>`
     : stocks.map(s => {
         return `<tr class="border-t border-slate-100 hover:bg-slate-50">
           <td class="px-4 py-3 font-medium text-navy">${s.ticker}</td>
@@ -546,8 +544,6 @@ function renderPortfolio() {
           <td class="px-4 py-3">${b.maturity}</td>
           <td class="px-4 py-3 text-right">${b.days}</td>
           <td class="px-4 py-3 text-right">${typeof b.interest === "number" ? fmtMDL(b.interest) : b.interest || "-"}</td>
-          <td class="px-4 py-3">${b.sold || "-"}</td>
-          <td class="px-4 py-3 text-right">${b.profitLoss || "-"}</td>
         </tr>`;
       }).join("");
 }
