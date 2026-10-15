@@ -187,7 +187,7 @@
               </div>
               <div>
                 <label for="calc-months" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.months"></label>
-                <input id="calc-months" type="number" inputmode="numeric" min="1" max="1200" step="1" value="0" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
+                <input id="calc-months" type="number" inputmode="numeric" min="0" max="1200" step="1" value="0" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
               </div>
             </div>
 
@@ -646,9 +646,9 @@ function renderCalculator() {
   const monthly = Math.max(0, Number.parseFloat(document.getElementById("calc-monthly").value) || 0);
   const rate = Math.max(0, Number.parseFloat(document.getElementById("calc-rate").value) || 0);
   const requestedMonths = Number.parseFloat(document.getElementById("calc-months").value);
-  const months = Number.isFinite(requestedMonths) && requestedMonths > 0
-    ? Math.max(1, Math.min(1200, Math.floor(requestedMonths)))
-    : 1;
+  const months = Number.isFinite(requestedMonths) && requestedMonths >= 0
+    ? Math.min(1200, Math.floor(requestedMonths))
+    : 0;
   const taxRate = Math.min(100, Math.max(0, Number.parseFloat(document.getElementById("calc-tax").value) || 0));
   document.getElementById("calc-months").value = months;
 
