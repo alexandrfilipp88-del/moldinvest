@@ -293,7 +293,6 @@
     </div>
     <div class="mt-10 pt-6 border-t border-slate-700/50 text-xs text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
       <span>© <span id="footer-year"></span> Moldinvest. <span data-i18n="footer.rights"></span></span>
-      <a href="admin.html" class="hover:text-slate-300">Admin</a>
     </div>
   </div>
 </footer>
@@ -303,9 +302,9 @@
 /* =====================================================================
    MOLDINVEST — single-file static site (no build step, no backend).
    - i18n via a JS dictionary object + data-i18n attributes.
-   - Portfolio data loaded from ./portfolio.json (edit that file, or
-     regenerate it with admin.html, then commit + push to update the
-     live site — GitHub → Vercel redeploys automatically).
+   - Portfolio data loaded from ./portfolio.json; edit that file, then
+     commit + push to update the live site — GitHub → Vercel redeploys
+     automatically.
    ===================================================================== */
 
 const DICTIONARIES = {
@@ -313,10 +312,10 @@ ro: {
   nav: { portfolio: "Portofoliu", calculator: "Calculator", services: "Servicii" },
   hero: {
     title: "Te ajut să investești în acțiuni și obligațiuni din Moldova",
-    subtitle: "Educație financiară aplicată și independență financiară reală — de la primele obligațiuni până la un portofoliu diversificat de acțiuni și obligațiuni care aduce dobândă și dividende și crește în preț."
+    subtitle: "Educație financiară de la prima investiție până la un portofoliu diversificat de acțiuni și obligațiuni care aduce dobândă, dividende și crește în preț."
   },
   stats: { community: "Comunitate pe TikTok și Instagram", portfolioManaged: "Portofoliu Administrat" },
-  public: { title: "Building in Public", text: "Moldinvest publică în timp real fiecare acțiune și obligațiune deținută în portofoliul demonstrativ, cu prețuri, dividende și randamente actualizate — transparență 100%, fără excepții." },
+  public: { title: "Building in Public", text: "Moldinvest publică fiecare acțiune și obligațiune deținută în portofoliul său și toate cifrele aferente cu o transparență 100%, fără excepții." },
   services: {
     title: "Servicii", subtitle: "Alege formatul de consultanță potrivit pentru nivelul și obiectivele tale.", button: "Solicita serviciul",
     items: [
