@@ -357,7 +357,7 @@ ro: {
   portfolio: {
     title: "Portofoliul Public Moldinvest", updatedPrefix: "Date actualizate la", updatedUnavailable: "Data actualizării nu este disponibilă", scrollHint: "← Glisați orizontal pentru a vedea toate coloanele →",
     kpi: { totalValue: "Valoare Totală Portofoliu", netPassiveIncome: "Venit pasiv net", avgYield: "Randament Mediu Ponderat" },
-    columns: { ticker: "Simbol", exchange: "Bursă", country: "Țară", quantity: "Cantitate", avgPrice: "Preț mediu", invested: "Investit", commission: "Comision", cost: "Cost", divGross: "Dividende brute", divTaxes: "Impozit pe dividende", divNet: "Dividende nete", divYield: "Randament (%)", code: "Cod", price: "Preț", yield: "Randament (%)", issued: "Emis la", maturity: "Scadență", days: "Zile", interest: "Dobândă", sold: "Vândut cu", profitLoss: "P/L" },
+    columns: { ticker: "Simbol", exchange: "Bursă", country: "Țară", quantity: "Cantitate", avgPrice: "Preț mediu (MDL)", invested: "Investit (MDL)", commission: "Comision (MDL)", cost: "Cost (MDL)", divGross: "Dividende brute (MDL)", divTaxes: "Impozit pe dividende (MDL)", divNet: "Dividende nete (MDL)", divYield: "Randament (%)", code: "Cod", price: "Preț (MDL)", yield: "Randament (%)", issued: "Emis la", maturity: "Scadență", days: "Zile", interest: "Dobândă (MDL)", sold: "Vândut cu (MDL)", profitLoss: "P/L (MDL)" },
     tier1: { title: "Acțiuni din Republica Moldova", company: "Compania", shares: "Nr. Acțiuni", avgPrice: "Preț Mediu (MDL)", currentPrice: "Preț Curent (MDL)", totalValue: "Valoare Totală (MDL)", dividends: "Dividende Încasate (MDL)", totalReturn: "Randament Total (%)" },
     tier2: { title: "Obligațiuni de Stat", issue: "Emisiune / Maturitate", invested: "Suma Investită (MDL)", couponRate: "Rata Cuponului (%)", frequency: "Frecvență Plată", couponReceived: "Cupon Încasat (MDL)", projectedIncome: "Proiecție Venit Anual (MDL)" },
     empty: "Nu există date de portofoliu încărcate momentan."
@@ -423,7 +423,7 @@ ru: {
   portfolio: {
     title: "Публичный портфель Moldinvest", updatedPrefix: "Данные обновлены", updatedUnavailable: "Дата обновления недоступна", scrollHint: "← Прокрутите таблицу по горизонтали, чтобы увидеть все столбцы →",
     kpi: { totalValue: "Общая стоимость портфеля", netPassiveIncome: "Чистый пассивный доход", avgYield: "Средневзвешенная доходность" },
-    columns: { ticker: "Тикер", exchange: "Биржа", country: "Страна", quantity: "Количество", avgPrice: "Средняя цена", invested: "Инвестировано", commission: "Комиссия", cost: "Затраты", divGross: "Дивиденды брутто", divTaxes: "Налог на дивиденды", divNet: "Дивиденды нетто", divYield: "Доходность (%)", code: "Код", price: "Цена", yield: "Доходность (%)", issued: "Дата выпуска", maturity: "Погашение", days: "Дней", interest: "Проценты", sold: "Продано за", profitLoss: "П/У" },
+    columns: { ticker: "Тикер", exchange: "Биржа", country: "Страна", quantity: "Количество", avgPrice: "Средняя цена (MDL)", invested: "Инвестировано (MDL)", commission: "Комиссия (MDL)", cost: "Затраты (MDL)", divGross: "Дивиденды брутто (MDL)", divTaxes: "Налог на дивиденды (MDL)", divNet: "Дивиденды нетто (MDL)", divYield: "Доходность (%)", code: "Код", price: "Цена (MDL)", yield: "Доходность (%)", issued: "Дата выпуска", maturity: "Погашение", days: "Дней", interest: "Проценты (MDL)", sold: "Продано за (MDL)", profitLoss: "П/У (MDL)" },
     tier1: { title: "Акции Молдовы", company: "Компания", shares: "Кол-во Акций", avgPrice: "Средняя Цена (MDL)", currentPrice: "Текущая Цена (MDL)", totalValue: "Общая Стоимость (MDL)", dividends: "Полученные Дивиденды (MDL)", totalReturn: "Общая Доходность (%)" },
     tier2: { title: "Государственные облигации", issue: "Выпуск / Погашение", invested: "Инвестированная Сумма (MDL)", couponRate: "Купонная Ставка (%)", frequency: "Периодичность Выплат", couponReceived: "Полученный Купон (MDL)", projectedIncome: "Прогноз Годового Дохода (MDL)" },
     empty: "Данные портфеля пока не загружены."
@@ -454,6 +454,9 @@ function get(obj, path) {
 
 function fmtMDL(v) {
   return (Number(v) || 0).toLocaleString(NUMBER_LOCALES[currentLang], { maximumFractionDigits: 2 }) + " MDL";
+}
+function fmtTableAmount(v) {
+  return (Number(v) || 0).toLocaleString(NUMBER_LOCALES[currentLang], { maximumFractionDigits: 2 });
 }
 function fmtPct(v) {
   return (Number(v) || 0).toLocaleString(NUMBER_LOCALES[currentLang], { maximumFractionDigits: 2 }) + "%";
@@ -610,13 +613,13 @@ function renderPortfolio() {
           <td class="px-4 py-3">${s.exchange || "-"}</td>
           <td class="px-4 py-3">${s.country || "-"}</td>
           <td class="px-4 py-3 text-right">${s.quantity}</td>
-          <td class="px-4 py-3 text-right">${fmtMDL(s.avgPrice)}</td>
-          <td class="px-4 py-3 text-right">${fmtMDL(s.invested)}</td>
-          <td class="px-4 py-3 text-right">${fmtMDL(s.commission)}</td>
-          <td class="px-4 py-3 text-right">${fmtMDL(s.cost)}</td>
-          <td class="px-4 py-3 text-right">${fmtMDL(s.divGross)}</td>
-          <td class="px-4 py-3 text-right">${fmtMDL(s.divTaxes)}</td>
-          <td class="px-4 py-3 text-right font-semibold">${fmtMDL(s.divNet)}</td>
+          <td class="px-4 py-3 text-right">${fmtTableAmount(s.avgPrice)}</td>
+          <td class="px-4 py-3 text-right">${fmtTableAmount(s.invested)}</td>
+          <td class="px-4 py-3 text-right">${fmtTableAmount(s.commission)}</td>
+          <td class="px-4 py-3 text-right">${fmtTableAmount(s.cost)}</td>
+          <td class="px-4 py-3 text-right">${fmtTableAmount(s.divGross)}</td>
+          <td class="px-4 py-3 text-right">${fmtTableAmount(s.divTaxes)}</td>
+          <td class="px-4 py-3 text-right font-semibold">${fmtTableAmount(s.divNet)}</td>
           <td class="px-4 py-3 text-right font-semibold text-brand-emerald">${fmtRatioPct(s.divYield)}</td>
         </tr>`;
       }).join("");
@@ -629,14 +632,14 @@ function renderPortfolio() {
         return `<tr class="border-t border-slate-100 hover:bg-slate-50">
           <td class="px-4 py-3 font-medium text-navy">${b.code}</td>
           <td class="px-4 py-3">${b.exchange || "-"}</td>
-          <td class="px-4 py-3 text-right">${fmtMDL(b.price)}</td>
+          <td class="px-4 py-3 text-right">${fmtTableAmount(b.price)}</td>
           <td class="px-4 py-3 text-right">${b.quantity}</td>
-          <td class="px-4 py-3 text-right">${fmtMDL(b.invested)}</td>
+          <td class="px-4 py-3 text-right">${fmtTableAmount(b.invested)}</td>
           <td class="px-4 py-3 text-right">${fmtRatioPct(b.yield)}</td>
           <td class="px-4 py-3">${b.issued}</td>
           <td class="px-4 py-3">${b.maturity}</td>
           <td class="px-4 py-3 text-right">${b.days}</td>
-          <td class="px-4 py-3 text-right">${typeof b.interest === "number" ? fmtMDL(b.interest) : b.interest || "-"}</td>
+          <td class="px-4 py-3 text-right">${typeof b.interest === "number" ? fmtTableAmount(b.interest) : b.interest || "-"}</td>
         </tr>`;
       }).join("");
 }
