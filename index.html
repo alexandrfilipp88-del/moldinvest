@@ -6,31 +6,8 @@
 <title>Moldinvest - Investiții în Moldova</title>
 <meta name="description" content="Ghidul tău de încredere în investițiile din Republica Moldova. Consultanță 1-la-1, workshop-uri și portofoliu public transparent." />
 <link rel="icon" type="image/jpeg" href="./assets/moldinvest-logo.jpg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          navy: { DEFAULT: '#0F172A', light: '#1E293B' },
-          brand: { blue: '#003366', emerald: '#059669', gold: '#D4AF37' },
-          surface: { light: '#F8FAFC' }
-        },
-        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
-      }
-    }
-  }
-</script>
-<style>
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', system-ui, sans-serif; }
-  [x-cloak] { display: none !important; }
-  .table-wrap { overflow-x: auto; scrollbar-color: #94a3b8 #f1f5f9; scrollbar-width: thin; }
-  .table-wrap table { min-width: 800px; }
-  .table-scroll-hint[hidden] { display: none; }
-</style>
+<link rel="stylesheet" href="./assets/fonts/inter.css">
+<link rel="stylesheet" href="./assets/site.css">
 </head>
 <body class="bg-white text-navy antialiased">
 
@@ -297,7 +274,7 @@
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="./assets/js/chart.umd.min.js"></script>
 <script>
 /* =====================================================================
    MOLDINVEST — single-file static site (no build step, no backend).
