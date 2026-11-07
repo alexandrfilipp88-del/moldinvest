@@ -796,7 +796,7 @@ function renderCalculator() {
 }
 
 function renderStats() {
-  const targets = { "stat-community": 3000, "stat-portfolio": 18257.8 };
+  const targets = { "stat-community": 4000, "stat-portfolio": 18257.8 };
   const suffixes = { "stat-community": "+", "stat-portfolio": " MDL" };
   Object.entries(targets).forEach(([id, target]) => {
     const value = id === "stat-portfolio" ? target : Math.floor(target);
@@ -808,7 +808,7 @@ function renderStats() {
 }
 
 function animateStats() {
-  const targets = { "stat-community": 3000, "stat-portfolio": 18257.8 };
+  const targets = { "stat-community": 4000, "stat-portfolio": 18257.8 };
   const suffixes = { "stat-community": "+", "stat-portfolio": " MDL" };
   Object.entries(targets).forEach(([id, target]) => {
     const el = document.getElementById(id);
