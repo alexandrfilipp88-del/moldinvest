@@ -218,6 +218,64 @@
             <p id="calc-axis-note" class="mt-2 text-xs text-slate-500"></p>
           </div>
         </div>
+        <div class="mt-8 border-t border-slate-100 pt-6">
+          <div class="max-w-3xl">
+            <h4 class="text-lg font-bold text-navy" data-i18n="calculator.coverTitle"></h4>
+            <p class="mt-2 text-sm text-slate-600" data-i18n="calculator.coverSubtitle"></p>
+          </div>
+          <div class="mt-5 rounded-xl p-4">
+            <div>
+              <label for="calc-income-monthly-expense" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.coverMonthly"></label>
+              <input id="calc-income-monthly-expense" type="number" inputmode="decimal" min="0" step="any" value="0" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20">
+            </div>
+          </div>
+          <div class="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div class="rounded-xl p-4">
+              <h5 class="mb-3 text-base font-bold text-navy" data-i18n="calculator.coverStockTitle"></h5>
+              <label for="calc-income-stock" class="mb-1 block text-sm font-medium text-slate-600" data-i18n="calculator.coverStock"></label>
+              <select id="calc-income-stock" class="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-navy focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20"></select>
+              <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div class="rounded-xl bg-surface-light p-4">
+                  <span class="block text-xs text-slate-500" data-i18n="calculator.coverShares"></span>
+                  <strong id="calc-income-stock-shares" class="mt-1 block break-words text-lg font-bold text-navy">—</strong>
+                </div>
+                <div class="rounded-xl bg-surface-light p-4">
+                  <span class="block text-xs text-slate-500" data-i18n="calculator.coverStockRate"></span>
+                  <strong id="calc-income-stock-rate" class="mt-1 block break-words text-lg font-bold text-navy">—</strong>
+                </div>
+                <div class="rounded-xl bg-surface-light p-4">
+                  <span class="block text-xs text-slate-500" data-i18n="calculator.coverStockPrice"></span>
+                  <strong id="calc-income-stock-price" class="mt-1 block break-words text-lg font-bold text-navy">—</strong>
+                </div>
+                <div class="rounded-xl bg-emerald-50 p-4">
+                  <span class="block text-xs text-emerald-800" data-i18n="calculator.coverStockInvestment"></span>
+                  <strong id="calc-income-stock-investment" class="mt-1 block break-words text-lg font-bold text-emerald-900">—</strong>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-xl p-4">
+              <h5 class="mb-3 text-base font-bold text-navy" data-i18n="calculator.coverBondTitle"></h5>
+              <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div class="rounded-xl bg-surface-light p-4">
+                  <span class="block text-xs text-slate-500" data-i18n="calculator.coverBondRate"></span>
+                  <strong id="calc-income-bond-rate" class="mt-1 block break-words text-lg font-bold text-navy">—</strong>
+                </div>
+                <div class="rounded-xl bg-surface-light p-4">
+                  <span class="block text-xs text-slate-500" data-i18n="calculator.coverBondUnits"></span>
+                  <strong id="calc-income-bond-units" class="mt-1 block break-words text-lg font-bold text-navy">—</strong>
+                </div>
+                <div class="rounded-xl bg-surface-light p-4">
+                  <span class="block text-xs text-slate-500" data-i18n="calculator.coverBondPrice"></span>
+                  <strong id="calc-income-bond-price" class="mt-1 block break-words text-lg font-bold text-navy">—</strong>
+                </div>
+                <div class="rounded-xl bg-emerald-50 p-4">
+                  <span class="block text-xs text-emerald-800" data-i18n="calculator.coverBondInvestment"></span>
+                  <strong id="calc-income-bond-investment" class="mt-1 block break-words text-lg font-bold text-emerald-900">—</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <p class="mt-6 border-t border-slate-100 pt-4 text-xs leading-relaxed text-slate-500" data-i18n="calculator.disclaimer"></p>
       </section>
     </div>
@@ -301,7 +359,8 @@ ro: {
       { title: "Cursuri de grup", desc: "Cursuri practice despre construirea unui portofoliu, calcularea dividendelor și planificarea obiectivelor financiare.", bullets: ["Construirea portofoliului pas cu pas", "Calcularea dividendelor și randamentelor", "Planificare financiară pe termen lung"] },
       { title: "Ghid practic pas cu pas", desc: "Un ghid clar care te ajută să parcurgi etapele investiției și să-ți organizezi portofoliul.", bullets: ["Stabilirea obiectivelor", "Alegerea instrumentelor", "Urmărirea portofoliului"] },
       { title: "Ghid video la comandă", desc: "Un material video creat la cerere, cu explicații adaptate subiectului investițional care te interesează.", bullets: ["Subiect ales de tine", "Explicații video structurate", "Accesibil oricând"] },
-      { title: "Publicitate pentru instrumente investiționale", desc: "Promovare de instrumente investiționale către o audiență interesată de finanțe, cu prezentarea clară a caracteristicilor și riscurilor.", bullets: ["Prezentare informativă", "Audiență interesată de investiții", "Comunicare transparentă"] }
+      { title: "Publicitate pentru instrumente investiționale", desc: "Promovare de instrumente investiționale către o audiență interesată de finanțe, cu prezentarea clară a caracteristicilor și riscurilor.", bullets: ["Prezentare informativă", "Audiență interesată de investiții", "Comunicare transparentă"] },
+      { title: "Aplicație privată de bugetare", desc: "Urmărește veniturile, cheltuielile și taxele într-o aplicație cu date stocate local pe telefon. Scanarea facturilor cu Gemini AI este opțională: utilizatorul își introduce singur cheia API și aprobă ce trimite către Google; introducerea manuală este disponibilă oricând.", bullets: ["Evidența veniturilor, cheltuielilor și taxelor", "Scanarea facturilor cu cheia ta Gemini API, doar la cerere", "Configurezi cheia în Setările aplicației; aceasta este folosită direct cu Google, nu cu Moldinvest", "Introduci datele manual sau aprobi trimiterea facturii selectate direct către Google"] }
     ]
   },
   faq: {
@@ -339,13 +398,28 @@ ro: {
     empty: "Nu există date de portofoliu încărcate momentan."
   },
   calculator: {
-    title: "Calculator de investiții", subtitle: "Simulează contribuțiile și creșterea estimată a investiției în MDL, cu capitalizare lunară.",
+    title: "Calculator de investiții", subtitle: "Calculează estimativ câți bani ai putea face dacă ai investi lunar.",
     initial: "Suma inițială (MDL)", monthly: "Investiția lunară (MDL)", rate: "Randament anual (%)", months: "Perioada (luni)", tax: "Impozit estimat pe câștig (%)",
     presets: { label: "Alege o perioadă:", oneYear: "1 an", fiveYears: "5 ani", tenYears: "10 ani", fifteenYears: "15 ani", eighteenYears: "18 ani", twentyYears: "20 ani", twentyFiveYears: "25 ani", thirtyYears: "30 ani", thirtyFiveYears: "35 ani" },
     results: "Rezultatele investiției", invested: "Total investit", grossGain: "Câștig brut", taxAmount: "Impozit estimat", finalValue: "Valoare finală netă", chartTitle: "Evoluția lunară estimată", netGain: "Câștig net",
     chartAria: "Grafic cu bare al contribuțiilor și câștigului net lunar", chartMonth: "Luna", finalValueTooltip: "Valoare finală estimată", chartUnavailable: "Graficul nu este disponibil momentan. Rezultatele numerice rămân funcționale.",
     axisYears: "Axa orizontală: ani (fiecare bară reprezintă o lună)", axisMonths: "Axa orizontală: luni",
-    disclaimer: "Simulare orientativă, cu capitalizare lunară și contribuții la sfârșitul fiecărei luni. Randamentele și impozitul sunt ipoteze introduse de utilizator; rezultatele nu sunt garantate și nu constituie consultanță de investiții.",
+    coverTitle: "Calculează cât să investești ca să îți acoperi cheltuielile lunare din venitul pasiv?",
+    coverSubtitle: "Compară estimativ câte acțiuni sau obligațiuni ar fi necesare pentru a acoperi cheltuielile lunare.",
+    coverMonthly: "Cît cheltui pe lună? (MDL)",
+    coverStock: "Alege o acțiune.",
+    coverStockTitle: "Acțiuni",
+    coverStockRate: "Rata medie a dividendelor",
+    coverShares: "Numărul de acțiuni necesare",
+    coverStockPrice: "Prețul mediu al acțiunii",
+    coverStockInvestment: "Investiția totală estimată",
+    coverBondTitle: "Obligațiuni",
+    coverBondUnits: "Numărul de obligațiuni necesare",
+    coverBondInvestment: "Investiția totală estimată",
+    coverBondPrice: "Prețul unei obligațiuni",
+    coverBondRate: "Rata medie a dobânzii",
+    coverNoData: "—",
+    disclaimer: "Estimare orientativă cu capitalizare lunară și contribuții la sfârșitul fiecărei luni. Randamentele și impozitul sunt ipoteze introduse de utilizator. Dividendele nete din tabel sunt considerate totalul pe 4 ani și mediate anual. Prețul acțiunii folosit este prețul mediu din tabel. Pentru obligațiuni, rata este media aritmetică a randamentelor din tabel, iar prețul unei obligațiuni este considerat 100 MDL. Veniturile lunare sunt echivalente estimate. Dividendele și cupoanele pot fi plătite cu altă frecvență. Dividendele pot crește sau scădea. Dividendele pot să nu fie plătite deloc. Rezultatele calculelor sunt estimări orientative și nu sunt garantate și nu constituie consultanță de investiții.",
     error: "Nu se poate calcula rezultatul pentru valorile introduse. Verifică perioada și ipotezele."
   },
   footer: { rights: "Toate drepturile rezervate.", disclaimer: `Informațiile prezentate au scop educațional și nu constituie consultanță de investiții personalizată în sensul legislației pieței de capital din Republica Moldova. Portofoliile afișate nu reprezintă o garanție, iar performanța trecută nu garantează rezultate viitoare. Moldinvest nu administrează portofolii de investiții ale terților.
@@ -383,7 +457,8 @@ ru: {
       { title: "Групповые курсы", desc: "Практические курсы по созданию портфеля, расчёту дивидендов и планированию финансовых целей.", bullets: ["Построение портфеля шаг за шагом", "Расчёт дивидендов и доходности", "Долгосрочное финансовое планирование"] },
       { title: "Практическое пошаговое руководство", desc: "Понятное руководство, которое поможет пройти этапы инвестирования и организовать портфель.", bullets: ["Постановка целей", "Выбор инструментов", "Мониторинг портфеля"] },
       { title: "Видео-гид на заказ", desc: "Видеоматериал по запросу с объяснениями, адаптированными к интересующей вас инвестиционной теме.", bullets: ["Вы выбираете тему", "Структурированные видеообъяснения", "Можно смотреть в удобное время"] },
-      { title: "Реклама инвестиционных инструментов", desc: "Продвижение инвестиционных инструментов для аудитории, интересующейся финансами, с ясным описанием особенностей и рисков.", bullets: ["Информативная презентация", "Аудитория, интересующаяся инвестициями", "Прозрачная коммуникация"] }
+      { title: "Реклама инвестиционных инструментов", desc: "Продвижение инвестиционных инструментов для аудитории, интересующейся финансами, с ясным описанием особенностей и рисков.", bullets: ["Информативная презентация", "Аудитория, интересующаяся инвестициями", "Прозрачная коммуникация"] },
+      { title: "Приватное приложение для бюджета", desc: "Учет доходов, расходов и налогов в приложении, которое хранит данные на телефоне. Сканирование счетов с Gemini AI необязательно: пользователь сам вводит API-ключ и подтверждает отправку данных в Google; ручной ввод доступен в любое время.", bullets: ["Учет доходов, расходов и налогов", "Сканирование счетов с вашим ключом Gemini API только по запросу", "Настройте ключ в параметрах приложения; он используется напрямую с Google, а не с Moldinvest", "Вводите данные вручную или разрешайте отправку выбранного счета напрямую в Google"] }
     ]
   },
   faq: {
@@ -427,7 +502,22 @@ ru: {
     results: "Результаты инвестирования", invested: "Всего вложено", grossGain: "Доход до налога", taxAmount: "Предполагаемый налог", finalValue: "Итоговая сумма после налога", chartTitle: "Предполагаемый рост по месяцам", netGain: "Доход после налога",
     chartAria: "Столбчатый график взносов и чистого дохода по месяцам", chartMonth: "Месяц", finalValueTooltip: "Предполагаемая итоговая сумма", chartUnavailable: "График сейчас недоступен. Числовые результаты продолжают работать.",
     axisYears: "Горизонтальная ось: годы (каждый столбец — месяц)", axisMonths: "Горизонтальная ось: месяцы",
-    disclaimer: "Ориентировочная модель с ежемесячной капитализацией и взносами в конце каждого месяца. Доходность и налог — введённые пользователем предположения; результат не гарантируется и не является инвестиционной консультацией.",
+    coverTitle: "Рассчитайте, сколько инвестировать, чтобы покрывать ежемесячные расходы пассивным доходом?",
+    coverSubtitle: "Сравните примерное количество акций или облигаций, необходимое для покрытия ежемесячных расходов.",
+    coverMonthly: "Сколько тратишь в месяц? (MDL)",
+    coverStock: "Выберите акцию.",
+    coverStockTitle: "Акции",
+    coverStockRate: "Средняя ставка дивидендов",
+    coverShares: "Необходимое количество акций",
+    coverStockPrice: "Средняя цена акции",
+    coverStockInvestment: "Ориентировочная общая сумма инвестиций",
+    coverBondTitle: "Облигации",
+    coverBondUnits: "Необходимое количество облигаций",
+    coverBondInvestment: "Ориентировочная общая сумма инвестиций",
+    coverBondPrice: "Цена одной облигации",
+    coverBondRate: "Средняя процентная ставка",
+    coverNoData: "—",
+    disclaimer: "Ориентировочная оценка с ежемесячной капитализацией и взносами в конце каждого месяца. Доходность и налог — предположения, введённые пользователем. Чистые дивиденды в таблице считаются общей суммой за 4 года и усредняются в годовом выражении. Используется средняя цена акции из таблицы. Для облигаций ставка рассчитывается как среднее арифметическое доходностей из таблицы, а цена одной облигации считается равной 100 MDL. Месячный доход является расчётным эквивалентом. Дивиденды и купоны могут выплачиваться с другой периодичностью. Дивиденды могут вырасти или снизиться. Дивиденды могут не выплачиваться вовсе. Результаты расчётов являются ориентировочными оценками, не гарантируются и не являются инвестиционной консультацией.",
     error: "Не удалось рассчитать результат для введённых значений. Проверьте срок и предположения."
   },
   footer: { rights: "Все права защищены.", disclaimer: `Представленная информация носит образовательный характер и не является персональной инвестиционной консультацией в смысле законодательства о рынке капитала Республики Молдова. Представленные портфели не являются гарантией, а прошлые результаты не гарантируют будущих результатов. Moldinvest не управляет инвестиционными портфелями третьих лиц.
@@ -505,14 +595,15 @@ function renderText() {
 
 function renderServices() {
   const dict = DICTIONARIES[currentLang].services;
-  const icons = ["🧑‍💼", "👨‍👩‍👧‍👦", "👥", "📋", "🎥", "📣"];
+  const icons = ["🧑‍💼", "👨‍👩‍👧‍👦", "👥", "📋", "🎥", "📣", "📱"];
   const formUrls = [
     "https://docs.google.com/forms/d/e/1FAIpQLSemDwIsUaMLiA509EpYz6-dNV9ZgP4SicC7mO-nt8FRpD-OkA/viewform?usp=pp_url&entry.349849534=Sesiune+individual%C4%83",
     "https://docs.google.com/forms/d/e/1FAIpQLSemDwIsUaMLiA509EpYz6-dNV9ZgP4SicC7mO-nt8FRpD-OkA/viewform?usp=pp_url&entry.349849534=FAMILIA+%E2%80%94+Primul+milion+pentru+copilul+t%C4%83u",
     "https://docs.google.com/forms/d/e/1FAIpQLSemDwIsUaMLiA509EpYz6-dNV9ZgP4SicC7mO-nt8FRpD-OkA/viewform?usp=pp_url&entry.349849534=Cursuri+de+grup",
     "https://docs.google.com/forms/d/e/1FAIpQLSemDwIsUaMLiA509EpYz6-dNV9ZgP4SicC7mO-nt8FRpD-OkA/viewform?usp=pp_url&entry.349849534=Ghid+practic+pas+cu+pas",
     "https://docs.google.com/forms/d/e/1FAIpQLSemDwIsUaMLiA509EpYz6-dNV9ZgP4SicC7mO-nt8FRpD-OkA/viewform?usp=pp_url&entry.349849534=Ghid+video+la+comand%C4%83",
-    "https://docs.google.com/forms/d/e/1FAIpQLSemDwIsUaMLiA509EpYz6-dNV9ZgP4SicC7mO-nt8FRpD-OkA/viewform?usp=pp_url&entry.349849534=Publicitate+pentru+instrumente+investi%C8%9Bionale"
+    "https://docs.google.com/forms/d/e/1FAIpQLSemDwIsUaMLiA509EpYz6-dNV9ZgP4SicC7mO-nt8FRpD-OkA/viewform?usp=pp_url&entry.349849534=Publicitate+pentru+instrumente+investi%C8%9Bionale",
+    "https://docs.google.com/forms/d/e/1FAIpQLSemDwIsUaMLiA509EpYz6-dNV9ZgP4SicC7mO-nt8FRpD-OkA/viewform?usp=pp_url&entry.349849534=Aplica%C8%9Bie+privat%C4%83+de+bugetare"
   ];
   const grid = document.getElementById("services-grid");
   grid.innerHTML = dict.items.map((s, i) => `
@@ -807,6 +898,74 @@ function renderStats() {
   });
 }
 
+function renderIncomeCoverageCalculator() {
+  const dict = DICTIONARIES[currentLang].calculator;
+  const stockSelect = document.getElementById("calc-income-stock");
+  const stocks = (portfolioData.stocks || []).filter(stock =>
+    Number(stock.quantity) > 0 && Number(stock.avgPrice) > 0 && Number(stock.divNet) > 0
+  );
+  const bondYields = (portfolioData.bonds || [])
+    .map(bond => Number(bond.yield))
+    .filter(rate => Number.isFinite(rate) && rate >= 0);
+
+  function populateStockSelect() {
+    const previousValue = stockSelect.value;
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "—";
+    stockSelect.replaceChildren(placeholder);
+    stocks.forEach(stock => {
+      const option = document.createElement("option");
+      option.value = stock.ticker;
+      option.textContent = stock.ticker;
+      stockSelect.append(option);
+    });
+    stockSelect.value = stocks.some(stock => stock.ticker === previousValue) ? previousValue : "";
+  }
+
+  populateStockSelect();
+
+  const monthlyExpense = Math.max(0, Number.parseFloat(document.getElementById("calc-income-monthly-expense").value) || 0);
+  const selectedStock = stocks.find(stock => stock.ticker === stockSelect.value);
+  const averageBondYield = bondYields.length
+    ? bondYields.reduce((total, rate) => total + rate, 0) / bondYields.length
+    : null;
+  const annualNetDividendPerShare = selectedStock
+    ? Number(selectedStock.divNet) / 4 / Number(selectedStock.quantity)
+    : 0;
+  const stockRatePercent = selectedStock && Number(selectedStock.avgPrice) > 0
+    ? annualNetDividendPerShare / Number(selectedStock.avgPrice) * 100
+    : null;
+  const stockShares = selectedStock && monthlyExpense > 0 && annualNetDividendPerShare > 0
+    ? Math.ceil(monthlyExpense * 12 / annualNetDividendPerShare)
+    : selectedStock ? 0 : null;
+  const stockInvestment = stockShares === null ? null : stockShares * Number(selectedStock.avgPrice);
+  const bondPrice = 100;
+  const bondUnits = averageBondYield !== null && averageBondYield > 0
+    ? Math.ceil(monthlyExpense * 12 / (averageBondYield * bondPrice))
+    : averageBondYield === null ? null : 0;
+  const bondInvestment = bondUnits === null ? null : bondUnits * bondPrice;
+
+  const formatUnits = value => value === null
+    ? dict.coverNoData
+    : new Intl.NumberFormat(NUMBER_LOCALES[currentLang], { maximumFractionDigits: 0 }).format(value);
+  document.getElementById("calc-income-stock-shares").textContent =
+    formatUnits(stockShares);
+  document.getElementById("calc-income-stock-rate").textContent =
+    stockRatePercent === null ? dict.coverNoData : fmtPct(stockRatePercent);
+  document.getElementById("calc-income-stock-price").textContent =
+    selectedStock ? calculatorMoney(Number(selectedStock.avgPrice)) : dict.coverNoData;
+  document.getElementById("calc-income-stock-investment").textContent =
+    stockInvestment === null ? dict.coverNoData : calculatorMoney(stockInvestment);
+  document.getElementById("calc-income-bond-units").textContent =
+    formatUnits(bondUnits);
+  document.getElementById("calc-income-bond-investment").textContent =
+    bondInvestment === null ? dict.coverNoData : calculatorMoney(bondInvestment);
+  document.getElementById("calc-income-bond-price").textContent = calculatorMoney(bondPrice);
+  document.getElementById("calc-income-bond-rate").textContent =
+    averageBondYield === null ? dict.coverNoData : fmtPct(averageBondYield * 100);
+}
+
 function animateStats() {
   const targets = { "stat-community": 4000, "stat-portfolio": 18257.8 };
   const suffixes = { "stat-community": "+", "stat-portfolio": " MDL" };
@@ -837,6 +996,7 @@ function renderAll() {
   renderPortfolio();
   updateTableScrollHints();
   renderCalculator();
+  renderIncomeCoverageCalculator();
 }
 
 function updateTableScrollHints() {
@@ -850,6 +1010,9 @@ document.getElementById("footer-year").textContent = new Date().getFullYear();
 window.addEventListener("resize", updateTableScrollHints);
 ["calc-initial", "calc-monthly", "calc-rate", "calc-months", "calc-tax"].forEach(id => {
   document.getElementById(id).addEventListener("input", renderCalculator);
+});
+["calc-income-monthly-expense", "calc-income-stock"].forEach(id => {
+  document.getElementById(id).addEventListener("input", renderIncomeCoverageCalculator);
 });
 document.querySelectorAll("[data-calculator-months]").forEach(button => {
   button.addEventListener("click", () => {
