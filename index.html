@@ -207,16 +207,18 @@
               </div>
             </div>
 
-            <h4 class="mb-2 mt-6 text-base font-bold text-navy" data-i18n="calculator.chartTitle"></h4>
-            <div class="mb-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600">
-              <span><i class="mr-1 inline-block h-2.5 w-2.5 rounded-sm bg-slate-500"></i><span data-i18n="calculator.invested"></span></span>
-              <span><i class="mr-1 inline-block h-2.5 w-2.5 rounded-sm bg-brand-emerald"></i><span data-i18n="calculator.netGain"></span></span>
-            </div>
-            <div class="relative h-64 w-full">
-              <canvas id="investment-chart" role="img" data-i18n-aria-label="calculator.chartAria"></canvas>
-            </div>
-            <p id="calc-axis-note" class="mt-2 text-xs text-slate-500"></p>
           </div>
+        </div>
+        <div class="mt-8">
+          <h4 class="mb-2 text-base font-bold text-navy" data-i18n="calculator.chartTitle"></h4>
+          <div class="mb-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-600">
+            <span><i class="mr-1 inline-block h-2.5 w-2.5 rounded-sm bg-slate-500"></i><span data-i18n="calculator.invested"></span></span>
+            <span><i class="mr-1 inline-block h-2.5 w-2.5 rounded-sm bg-brand-emerald"></i><span data-i18n="calculator.netGain"></span></span>
+          </div>
+          <div class="relative h-64 w-full">
+            <canvas id="investment-chart" role="img" data-i18n-aria-label="calculator.chartAria"></canvas>
+          </div>
+          <p id="calc-axis-note" class="mt-2 text-xs text-slate-500"></p>
         </div>
         <div class="mt-8 border-t border-slate-100 pt-6">
           <div class="max-w-3xl">
@@ -255,7 +257,7 @@
             </div>
             <div class="rounded-xl p-4">
               <h5 class="mb-3 text-base font-bold text-navy" data-i18n="calculator.coverBondTitle"></h5>
-              <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:pt-[82px]">
                 <div class="rounded-xl bg-surface-light p-4">
                   <span class="block text-xs text-slate-500" data-i18n="calculator.coverBondRate"></span>
                   <strong id="calc-income-bond-rate" class="mt-1 block break-words text-lg font-bold text-navy">—</strong>
@@ -324,7 +326,7 @@
         </div>
       </div>
     </div>
-    <div class="mt-10 text-xs text-slate-500 leading-relaxed whitespace-pre-line" data-i18n="footer.disclaimer"></div>
+    <div class="mt-10 text-[10px] text-slate-500 leading-relaxed whitespace-normal" data-i18n="footer.disclaimer"></div>
     <div class="mt-10 pt-6 border-t border-slate-700/50 text-xs text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
       <span>© <span id="footer-year"></span> Moldinvest. <span data-i18n="footer.rights"></span></span>
     </div>
@@ -351,7 +353,7 @@ ro: {
   stats: { community: "Comunitate pe TikTok, Instagram, YouTube", portfolioManaged: "Portofoliu Administrat" },
   public: { title: "Building in Public", text: "Moldinvest publică fiecare acțiune și obligațiune deținută în portofoliul său și toate cifrele aferente cu o transparență 100%, fără excepții." },
   services: {
-    title: "Servicii", subtitle: "Alege formatul de consultanță potrivit pentru nivelul și obiectivele tale.", button: "Solicita serviciul",
+    title: "Servicii", subtitle: "Alege formatul de consultanță potrivit pentru nivelul și obiectivele tale.", button: "Solicita serviciul", comingSoon: "În curând",
     consentRead: "Am citit toată", consentLink: "documentația juridică", consentAgree: "și sunt de acord cu întreg conținutul acesteia",
     items: [
       { title: "Sesiune individuală", desc: "Sesiune privată de 60 de minute pentru a discuta obiectivele tale, a evalua profilul de risc și a configura pașii de început.", bullets: ["Analiza profilului de risc", "Plan de acțiune personalizat", "Configurarea conturilor de tranzacționare"] },
@@ -360,7 +362,7 @@ ro: {
       { title: "Ghid practic pas cu pas", desc: "Un ghid clar care te ajută să parcurgi etapele investiției și să-ți organizezi portofoliul.", bullets: ["Stabilirea obiectivelor", "Alegerea instrumentelor", "Urmărirea portofoliului"] },
       { title: "Ghid video la comandă", desc: "Un material video creat la cerere, cu explicații adaptate subiectului investițional care te interesează.", bullets: ["Subiect ales de tine", "Explicații video structurate", "Accesibil oricând"] },
       { title: "Publicitate pentru instrumente investiționale", desc: "Promovare de instrumente investiționale către o audiență interesată de finanțe, cu prezentarea clară a caracteristicilor și riscurilor.", bullets: ["Prezentare informativă", "Audiență interesată de investiții", "Comunicare transparentă"] },
-      { title: "Aplicație privată de bugetare", desc: "Urmărește veniturile, cheltuielile și taxele într-o aplicație cu date stocate local pe telefon. Scanarea facturilor cu Gemini AI este opțională: utilizatorul își introduce singur cheia API și aprobă ce trimite către Google; introducerea manuală este disponibilă oricând.", bullets: ["Evidența veniturilor, cheltuielilor și taxelor", "Scanarea facturilor cu cheia ta Gemini API, doar la cerere", "Configurezi cheia în Setările aplicației; aceasta este folosită direct cu Google, nu cu Moldinvest", "Introduci datele manual sau aprobi trimiterea facturii selectate direct către Google"] }
+      { title: "Aplicație privată de bugetare", desc: "Urmărește veniturile, cheltuielile și taxele într-o aplicație cu date stocate local pe telefon.", bullets: ["Evidența veniturilor, cheltuielilor și taxelor", "Scanarea facturilor cu AI", "Export în Excel"], comingSoon: true }
     ]
   },
   faq: {
@@ -449,7 +451,7 @@ ru: {
   stats: { community: "Сообщество в TikTok, Instagram и YouTube", portfolioManaged: "Портфель под управлением" },
   public: { title: "Открыто о портфеле", text: "Moldinvest публикует информацию о каждой акции и облигации в своём портфеле и все связанные с ними показатели — полная прозрачность, 100%, без исключений." },
   services: {
-    title: "Услуги", subtitle: "Выберите формат консультации, соответствующий вашему уровню и целям.", button: "Запросить услугу",
+    title: "Услуги", subtitle: "Выберите формат консультации, соответствующий вашему уровню и целям.", button: "Запросить услугу", comingSoon: "Скоро",
     consentRead: "Я прочитал(а) всю", consentLink: "юридическую документацию", consentAgree: "и согласен(на) со всем её содержанием",
     items: [
       { title: "Индивидуальная сессия", desc: "Личная 60-минутная встреча, чтобы обсудить ваши цели, оценить профиль риска и определить первые шаги.", bullets: ["Анализ профиля риска", "Персональный план действий", "Настройка торговых счетов"] },
@@ -458,7 +460,7 @@ ru: {
       { title: "Практическое пошаговое руководство", desc: "Понятное руководство, которое поможет пройти этапы инвестирования и организовать портфель.", bullets: ["Постановка целей", "Выбор инструментов", "Мониторинг портфеля"] },
       { title: "Видео-гид на заказ", desc: "Видеоматериал по запросу с объяснениями, адаптированными к интересующей вас инвестиционной теме.", bullets: ["Вы выбираете тему", "Структурированные видеообъяснения", "Можно смотреть в удобное время"] },
       { title: "Реклама инвестиционных инструментов", desc: "Продвижение инвестиционных инструментов для аудитории, интересующейся финансами, с ясным описанием особенностей и рисков.", bullets: ["Информативная презентация", "Аудитория, интересующаяся инвестициями", "Прозрачная коммуникация"] },
-      { title: "Приватное приложение для бюджета", desc: "Учет доходов, расходов и налогов в приложении, которое хранит данные на телефоне. Сканирование счетов с Gemini AI необязательно: пользователь сам вводит API-ключ и подтверждает отправку данных в Google; ручной ввод доступен в любое время.", bullets: ["Учет доходов, расходов и налогов", "Сканирование счетов с вашим ключом Gemini API только по запросу", "Настройте ключ в параметрах приложения; он используется напрямую с Google, а не с Moldinvest", "Вводите данные вручную или разрешайте отправку выбранного счета напрямую в Google"] }
+      { title: "Приватное приложение для бюджета", desc: "Отслеживайте доходы, расходы и налоги в приложении, где данные хранятся локально на телефоне.", bullets: ["Учет доходов, расходов и налогов", "Сканирование счетов с помощью ИИ", "Экспорт в Excel"], comingSoon: true }
     ]
   },
   faq: {
@@ -608,7 +610,7 @@ function renderServices() {
   const grid = document.getElementById("services-grid");
   grid.innerHTML = dict.items.map((s, i) => `
     <div class="service-card relative flex flex-col rounded-2xl border border-slate-100 bg-surface-light p-7 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
-      <span class="absolute right-6 top-6 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">GRATIS</span>
+      <span class="absolute right-6 top-6 rounded-full px-3 py-1 text-xs font-bold ${s.comingSoon ? 'bg-orange-50 text-orange-800' : 'bg-red-50 text-red-700'}">${s.comingSoon ? dict.comingSoon : 'GRATIS'}</span>
       <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue text-white mb-5 text-xl">${icons[i]}</span>
       <h3 class="text-lg font-bold text-navy">${s.title}</h3>
       <p class="mt-3 text-sm text-slate-600 flex-1">${s.desc}</p>
